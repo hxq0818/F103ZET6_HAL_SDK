@@ -8,29 +8,45 @@
 *******************************************************************************/
 void LED_Init(void)
 {
-#if BSP_LED1_SUPPORT || BSP_LED2_SUPPORT
+//#if BSP_LED1_SUPPORT || BSP_LED2_SUPPORT
+//	GPIO_InitTypeDef GPIO_InitStructure;
+//#endif
+//#if BSP_LED1_SUPPORT
+//	LED1_PORT_RCC_ENABLE;
+//	
+//	GPIO_InitStructure.Pin=LED1_PIN; 
+//	GPIO_InitStructure.Mode=GPIO_MODE_AF_PP;  //推挽输出 
+//	GPIO_InitStructure.Pull=GPIO_PULLUP;          //上拉
+//	GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;//高速
+//	HAL_GPIO_Init(LED1_PORT,&GPIO_InitStructure);
+//	
+////	HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_SET);
+//#endif
+//#if BSP_LED2_SUPPORT
+//	LED2_PORT_RCC_ENABLE;
+//	
+//	GPIO_InitStructure.Pin=LED2_PIN; 
+//	GPIO_InitStructure.Mode=GPIO_MODE_AF_PP;  //推挽输出
+//	GPIO_InitStructure.Pull=GPIO_PULLUP;          //上拉
+//	GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;//高速
+//	HAL_GPIO_Init(LED2_PORT,&GPIO_InitStructure);
+//		
+////	HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_SET);	
+//#endif
 	GPIO_InitTypeDef GPIO_InitStructure;
-#endif
-#if BSP_LED1_SUPPORT
+	
 	LED1_PORT_RCC_ENABLE;
-	
-	GPIO_InitStructure.Pin=LED1_PIN; 
-	GPIO_InitStructure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
-	GPIO_InitStructure.Pull=GPIO_PULLUP;          //上拉
-	GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;//高速
-	HAL_GPIO_Init(LED1_PORT,&GPIO_InitStructure);
-	
-	HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_SET);
-#endif
-#if BSP_LED2_SUPPORT
 	LED2_PORT_RCC_ENABLE;
 	
+	GPIO_InitStructure.Pin=LED1_PIN; 
+    GPIO_InitStructure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
+    GPIO_InitStructure.Pull=GPIO_PULLUP;          //上拉
+    GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;//高速
+    HAL_GPIO_Init(LED1_PORT,&GPIO_InitStructure);
+	
 	GPIO_InitStructure.Pin=LED2_PIN; 
-	GPIO_InitStructure.Mode=GPIO_MODE_OUTPUT_PP;  //推挽输出
-	GPIO_InitStructure.Pull=GPIO_PULLUP;          //上拉
-	GPIO_InitStructure.Speed=GPIO_SPEED_FREQ_HIGH;//高速
-	HAL_GPIO_Init(LED2_PORT,&GPIO_InitStructure);
-		
-	HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_SET);	
-#endif
+    HAL_GPIO_Init(LED2_PORT,&GPIO_InitStructure);
+	
+	HAL_GPIO_WritePin(LED1_PORT,LED1_PIN,GPIO_PIN_SET);	
+    HAL_GPIO_WritePin(LED2_PORT,LED2_PIN,GPIO_PIN_SET);	
 } 

@@ -1,6 +1,7 @@
 #include "time.h"
 #include "led.h"
-
+#include "user_project.h"
+#include "usart.h"
 
 TIM_HandleTypeDef TIM2_Handler;      //定时器句柄 
 TIM_HandleTypeDef TIM3_Handler;      //定时器句柄 
@@ -191,88 +192,55 @@ void TIM5_IRQHandler(void)
 {
     HAL_TIM_IRQHandler(&TIM5_Handler);
 }
-//static uint32_t time2=0;
-//static uint32_t time3=0;
-//static uint32_t time4=0;
-//static uint32_t time5=0;
-//static uint32_t time6=0;
-//static uint32_t time7=0;
+static uint32_t time2=0;
+static uint32_t time4=0;
+static uint32_t time5=0;
+static uint32_t time6=0;
+static uint32_t time7=0;
 
 //回调函数，定时器中断服务函数调用
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-//    if(htim==(&TIM6_Handler))
-//    {
-//			time6++;
-//			if(time6 == 1000)
-//			{
-//					 LED2(0);        //LED1反转
-//					 time6 = 0;
-//			}
-//			else if(time6 == 500)
-//			{
-//					LED2(1);
-//			}
-//    }
-//		if(htim==(&TIM7_Handler))
-//    {
-//			time7++;
-//			if(time7 == 1000)
-//			{
-//					 LED1(0);        //LED1反转
-//					 time7 = 0;
-//			}
-//			else if(time7 == 500)
-//			{
-//					LED1(1);
-//			}
-//    }
-//		if(htim==(&TIM2_Handler))
-//    {
-//			time2++;
-//			if(time2 % 2 == 0)
-//			{
-//					 LED1(0);        //LED1反转
-//			}
-//			else 
-//			{
-//					LED1(1);
-//			}
-//    }
-//		if(htim==(&TIM3_Handler))
-//    {
-//			time3++;
-//			if(time3 % 2 == 0)
-//			{
-//					 LED1(0);        //LED1反转
-//			}
-//			else 
-//			{
-//					LED1(1);
-//			}
-//    }
-//		if(htim==(&TIM4_Handler))
-//    {
-//			time4++;
-//			if(time4 % 2 == 0)
-//			{
-//					 LED1(0);        //LED1反转
-//			}
-//			else 
-//			{
-//					LED1(1);
-//			}
-//    }
-//		if(htim==(&TIM5_Handler))
-//    {
-//			time5++;
-//			if(time5 % 2 == 0)
-//			{
-//					 LED2(0);        //LED1反转
-//			}
-//			else 
-//			{
-//					LED2(1);
-//			}
-//    }
+    if(htim==(&TIM6_Handler))
+    {
+			time6++;
+			if(time6 == 1000)
+			{
+					 printf("TIM6_Handler!!!\r\n");
+					 time6 = 0;
+			}
+    }
+		if(htim==(&TIM7_Handler))
+    {
+			time7++;
+			if(time7 == 1000)
+			{
+					 printf("TIM7_Handler!!!\r\n");
+					 time7 = 0;
+			}
+    }
+		if(htim==(&TIM2_Handler))
+    {
+			time2++;
+			if(time2 % 2 == 0)
+			{
+					 printf("TIM2_Handler!!!\r\n");
+			}
+    }
+		if(htim==(&TIM4_Handler))
+    {
+			time4++;
+			if(time4 % 2 == 0)
+			{
+					 printf("TIM4_Handler!!!\r\n");
+			}
+    }
+		if(htim==(&TIM5_Handler))
+    {
+			time5++;
+			if(time5 % 2 == 0)
+			{
+					 printf("TIM5_Handler!!!\r\n");
+			}
+    }
 }

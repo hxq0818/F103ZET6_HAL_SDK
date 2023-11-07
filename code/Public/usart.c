@@ -68,7 +68,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
 		HAL_GPIO_Init(GPIOA,&GPIO_InitStructure);	   	//初始化PA10
 		
 		HAL_NVIC_EnableIRQ(USART1_IRQn);		//使能USART1中断通道
-		HAL_NVIC_SetPriority(USART1_IRQn,3,3);	//抢占优先级3，子优先级3
+		HAL_NVIC_SetPriority(USART1_IRQn,5,5);	//抢占优先级3，子优先级3
 
 	}
 

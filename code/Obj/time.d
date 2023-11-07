@@ -59,3 +59,5 @@
 .\obj\time.o: .\Libraries\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_mmc.h
 .\obj\time.o: .\APP\led\led.h
 .\obj\time.o: .\User\user_project.h
+.\obj\time.o: .\Public\usart.h
+.\obj\time.o: D:\Installation_Path\Keil\Core\ARM\ARMCC\Bin\..\include\stdio.h
